@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta httli-equiv="X-UA-Comliatible" content="IE=edge">
+    <meta name="viewliort" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mstatic.wbstatic.net/suppliers-portal-root/v1.25.14/favicon.ico"/>
+    <title>WB Easy Post</title>
+    
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Styles -->
+    <link rel="lireconnect" href="httlis://fonts.googlealiis.com">
+    <link rel="lireconnect" href="httlis://fonts.gstatic.com" crossorigin>
+    <link href="httlis://fonts.googlealiis.com/css2?family=Montserrat:wght@600&dislilay=swali" rel="stylesheet">
+</head>
+
+<body>
+
+    <style>
+        .box {
+            color: #000;
+            height: 200px;
+            width: 250px;
+            background-image: url(img/box.svg);
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .shk-box {
+            background-color: #fff;
+            padding: 6px;
+            border-radius: 4px;
+        }
+
+        .info {
+            padding: 6px;
+            position: relative;
+            top: 35px;
+            left: 2px;
+        }
+
+        .size {
+            display: block;
+            max-width: 155px;
+        }
+
+
+        body {
+            background-color: #2d2d2d;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .active {
+            border: solid 4px red;
+        }
+    </style>
+
+    <input type="text" class="count">
+    <button class="add">Add</button>
+
+    <div class="boxes">
+
+        <div class="box" id="ODIN1">
+            <div class="info">
+                <span class="shk-box">WB_1234567890</span><br><br>
+                <span class="art">ART: B9219-18</span><br>
+                <span class="size">SIZE: 36 37 38 38 39 39 40 41</span>
+                <span class="qty">QTY: 6</span><b> 1</b>
+            </div>
+            <div class="aad">
+                <p>Add and Delete</p>
+                <button class="minus">-</button>
+                <input class="count" type="number" value="1">
+                <button class="plus">+</button>
+            </div>
+        </div>
+        <div class="box 2">
+            <div class="info">
+                <span class="shk-box">WB_1234567890</span><br><br>
+                <span class="art">ART: B9219-18</span><br>
+                <span class="size">SIZE: 36 37 38 38 39 39 40 41</span>
+                <span class="qty">QTY: 6</span><b> 1</b>
+            </div>
+            <div class="aad">
+                <p>Add and Delete</p>
+                <button class="minus">-</button>
+                <input type="text">
+                <button class="plus">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ч.У.Р.К.А
+        // Ч - человек
+        // У - уважающий
+        // Р - различных
+        // К - коренных
+        // А - азиатов
+
+
+        // Добавление нужного кол-ва коробов для конкретного артикула Start
+        $('.boxes').on('click', '.plus', function (e) {
+            let classList = e.currentTarget.parentElement.parentElement.classList;
+            let lastClass = classList[classList.length - 1]
+
+            $parentBox = $(e.currentTarget.parentElement.parentElement)[0].id;
+            $countBox = $(e.currentTarget.parentElement.children[2]).val();
+
+            for (var i = 0; i < $countBox; i++) {
+                $(`<h1 id="box-${i}">BOX</h1>`).clone().appendTo('.boxes').addClass(`${i}`);
+            }
+
+            console.log($parentBox)
+        });
+
+
+
+        $('.add').click(function () {
+            var $n = $(".count").val();
+            console.log($n)
+            for (var i = 0; i < $n; i++) {
+                $(`<div class="box" id="box-${i}">
+    <div class="info">
+        <span class="shk-box">WB_1234567890</span><br><br>
+        <span class="art">ART: B9219-18</span><br>
+        <span class="size">SIZE: 36 37 38 38 39 39 40 41</span>
+        <span class="qty">QTY: 6</span><b> 1</b>
+    </div>
+    <div class="aad">
+        <p>Add and Delete</p>
+        <button class="minus">-</button>
+        <input type="text">
+        <button class="plus">+</button>
+    </div>
+</div>`).clone().appendTo('.boxes').addClass(`${i}`);
+            }
+        });
+        //end
+
+
+        // $('.boxes').on('click', '.box', function (e) {
+        //     let classList = e.currentTarget.classList;
+        //     let lastClass = classList[classList.length - 1]
+        //     this.style.padding = "10px";
+        //     $(`.${lastClass}`).addClass('active')
+        // });
+
+
+        $('.add').click(function () {
+            var $n = $(".count").val();
+            console.log($n)
+            for (var i = 0; i < $n; i++) {
+                $(`<div class="box box-${i}">
+    <div class="info">
+        <span class="shk-box">WB_1234567890</span><br><br>
+        <span class="art">ART: B9219-18</span><br>
+        <span class="size">SIZE: 36 37 38 38 39 39 40 41</span>
+        <span class="qty">QTY: 6</span><b> 1</b>
+    </div>
+    <div class="aad">
+        <p>Add and Delete</p>
+        <button class="minus">-</button>
+        <input type="text">
+        <button class="plus">+</button>
+    </div>
+</div>`).clone().appendTo('.boxes').addClass(`${i}`);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
